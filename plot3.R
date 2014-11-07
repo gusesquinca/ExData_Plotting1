@@ -30,7 +30,9 @@ subdata %>% mutate(Datetime = ymd_hms(Datetime))
 
 #Second step plotting the data
 #======================================================
-sub_data$Global_active_power <- as.numeric(sub_data$Global_active_power)	#changing value format of the variable for plotting
+sub_data$Sub_metering_1 <- as.numeric(sub_data$Sub_metering_1)	#changing value format of the variable for plotting
+sub_data$Sub_metering_2 <- as.numeric(sub_data$Sub_metering_1)	#changing value format of the variable for plotting
+sub_data$Sub_metering_3 <- as.numeric(sub_data$Sub_metering_1)	#changing value format of the variable for plotting
 
 plot(Datetime, sub_data$Sub_metering_1, type = "l", ylab = "Energy sub metering")
 points(Datetime, sub_data$Sub_metering_2, type = "l", col = "red")
