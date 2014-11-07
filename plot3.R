@@ -26,13 +26,13 @@ sub_data <- filter(data, Date > "2007-01-31" & Date <= "2007-02-02") #filtering 
 #add a column to the data base with time and date together
 sub_data$Date <- as.character(sub_data$Date)
 Datetime <- paste(sub_data$Date," ", sub_data$Time)
-subdata %>% mutate(Datetime = ymd_hms(Datetime))
+sub_data <- sub_data %>% mutate(Datetime = ymd_hms(Datetime))
 
 #Second step plotting the data
 #======================================================
 sub_data$Sub_metering_1 <- as.numeric(sub_data$Sub_metering_1)	#changing value format of the variable for plotting
-sub_data$Sub_metering_2 <- as.numeric(sub_data$Sub_metering_1)	#changing value format of the variable for plotting
-sub_data$Sub_metering_3 <- as.numeric(sub_data$Sub_metering_1)	#changing value format of the variable for plotting
+sub_data$Sub_metering_2 <- as.numeric(sub_data$Sub_metering_2)	#changing value format of the variable for plotting
+sub_data$Sub_metering_3 <- as.numeric(sub_data$Sub_metering_3)	#changing value format of the variable for plotting
 
 plot(Datetime, sub_data$Sub_metering_1, type = "l", ylab = "Energy sub metering")
 points(Datetime, sub_data$Sub_metering_2, type = "l", col = "red")
