@@ -1,4 +1,4 @@
-plot2 <- function()
+plot3 <- function()
 {
 #First part of the code is to Getting the Data
 #=============================================
