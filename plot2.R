@@ -26,7 +26,7 @@ sub_data <- filter(data, Date > "2007-01-31" & Date <= "2007-02-02") #filtering 
 #add a column to the data base with time and date together
 sub_data$Date <- as.character(sub_data$Date)
 Datetime <- paste(sub_data$Date," ", sub_data$Time)
-sub_data <- subdata %>% mutate(Datetime = ymd_hms(Datetime))
+sub_data <- sub_data %>% mutate(Datetime = ymd_hms(Datetime))
 
 #Second step plotting the data
 #======================================================
