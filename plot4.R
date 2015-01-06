@@ -28,7 +28,7 @@ sub_data$Date <- as.character(sub_data$Date)
 Datetime <- paste(sub_data$Date," ", sub_data$Time)
 sub_data <- sub_data %>% mutate(Datetime = ymd_hms(Datetime))
 
-#Second step plotting the data
+#Second step plotting the data using the Base Plot System
 #======================================================
 #Change variables format as numeric for plotting
 sub_data$Global_active_power <- as.numeric(sub_data$Global_active_power)
