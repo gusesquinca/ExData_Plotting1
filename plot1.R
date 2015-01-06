@@ -23,7 +23,7 @@ data <- read.table("household_power_consumption.txt", sep = ";", header = TRUE, 
 data$Date <- dmy(data$Date)  #giving format to date column
 sub_data <- filter(data, Date > "2007-01-31" & Date <= "2007-02-02") #filtering with the Date column
 
-#Second step plotting the data
+#Second step plotting the data using the Base Plot System
 #======================================================
 sub_data$Global_active_power <- as.numeric(sub_data$Global_active_power)	#changing value format of the variable for plotting
 hist(sub_data$Global_active_power, col = "red", xlab = "Global Active Power (kilowatts)", ylab ="Frecuency", main = "Global Active Power")
