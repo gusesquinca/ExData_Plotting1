@@ -5,7 +5,7 @@ plot4 <- function()
 library(lubridate) 	#for later data subsetting
 library(dplyr) 		#for data filtering
 
-create the directory where the file will be downloaded
+#create the directory where the file will be downloaded
 if (!file.exists("data_plot")) { 
    dir.create("data_plot") 
 }
@@ -16,7 +16,7 @@ setInternet2(TRUE)
 download.file(url, "data_plot//power.zip")
 
 #decompress the file to be able to read it
-unzip("exdata-data-household_power_consumption.zip", "household_power_consumption.txt")
+unzip("data_plot//power.zip", "household_power_consumption.txt")
 
 #read the file, ensuring to remove NA's and leaving the data as is ("character")
 data <- read.table("household_power_consumption.txt", sep = ";", header = TRUE, as.is = TRUE, na.strings = TRUE)
@@ -56,5 +56,3 @@ plot(Datetime, Global_reactive_power, type = "l", ylab = "Global_reactive_power"
 dev.copy(png, file = "plot4.png", width = 480, height = 480)
 dev.off()
 }
-
-
