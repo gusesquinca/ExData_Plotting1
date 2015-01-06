@@ -28,7 +28,7 @@ sub_data$Date <- as.character(sub_data$Date)
 Datetime <- paste(sub_data$Date," ", sub_data$Time)
 sub_data <- sub_data %>% mutate(Datetime = ymd_hms(Datetime))
 
-#Second step plotting the data
+#Second step plotting the data using the Base Plot System
 #======================================================
 sub_data$Sub_metering_1 <- as.numeric(sub_data$Sub_metering_1)	#changing value format of the variable for plotting
 sub_data$Sub_metering_2 <- as.numeric(sub_data$Sub_metering_2)	#changing value format of the variable for plotting
