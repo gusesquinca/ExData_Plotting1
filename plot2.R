@@ -5,7 +5,7 @@ plot2 <- function()
 library(lubridate) 	#for later data subsetting
 library(dplyr) 		#for data filtering
 
-create the directory where the file will be downloaded
+#create the directory where the file will be downloaded
 if (!file.exists("data_plot")) { 
    dir.create("data_plot") 
 }
@@ -16,7 +16,7 @@ setInternet2(TRUE)
 download.file(url, "data_plot//power.zip")
 
 #decompress the file to be able to read it
-unzip("exdata-data-household_power_consumption.zip", "household_power_consumption.txt")
+unzip("data_plot//power.zip", "household_power_consumption.txt")
 
 #read the file, ensuring to remove NA's and leaving the data as is ("character")
 data <- read.table("household_power_consumption.txt", sep = ";", header = TRUE, as.is = TRUE, na.strings = TRUE)
@@ -32,7 +32,7 @@ sub_data <- sub_data %>% mutate(Datetime = ymd_hms(Datetime))
 #======================================================
 sub_data$Global_active_power <- as.numeric(sub_data$Global_active_power)	#changing value format of the variable for plotting
 
-plot(Datetime, sub_data$Global_active_power, type = "l", ylab = "Global active power (kilowatts)")
+plot(sub_data$Datetime, sub_data$Global_active_power, type = "l", ylab = "Global active power (kilowatts)")
 
 
 #Third step copying the graph to png file, look for it on your working directory
